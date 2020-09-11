@@ -26,10 +26,7 @@ fun main () {
     var max = '0'
 
     if (input !== null) {
-        for (num: Char in input) {
-            val currNum = num.toInt()
-            if (currNum > max.toInt() && currNum % 2 == 0) max = num
-        }
+        for (num: Char in input) if (num > max && num.toInt() % 2 == 0) max = num
         println("Результат: $max")
     } else println("Неверно введено число")
 }
