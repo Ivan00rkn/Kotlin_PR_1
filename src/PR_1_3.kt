@@ -3,10 +3,12 @@
 (в строке указываются только слова, разделенные одним или несколькими пробелами).*/
 
 fun main(args: Array<String>) {
-    val input = readLine()
+    println("Введите строку")
+
+    val input: String? = readLine()
     var word = ""
     var resultChar = ' '
-    var len = 0
+    var length = 0
     var i = 0
 
     if (input !== null)
@@ -15,19 +17,18 @@ fun main(args: Array<String>) {
                 word += letter
             }
             if(letter == ' ' || letter == input[input.length - 1]){
-                if(word.length % 2 != 0){
-                    println(i)
-                    if(i == 0) len = word.length
-                    if(len > word.length){
-                        println("len $len")
-                        len = word.length
+                if(word.length % 2 != 0) {
+                    if(i == 0) length = word.length
+                    if(length > word.length){
+                        length = word.length
                         resultChar = word[0]
                     }
                 }
                 i++
                 word = ""
             }
-        }
+        } else println("Ошибка ввода!")
 
-    println("First letter in the longest word with odd amount of letters is: $resultChar")
+    if (resultChar != ' ') println("Результат: $resultChar") else println("Нет ни одного слова с нечётным количеством символов")
+
 }
