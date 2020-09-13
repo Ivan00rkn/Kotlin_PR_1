@@ -2,15 +2,32 @@
 в строке снечетным числом символов
 (в строке указываются только слова, разделенные одним или несколькими пробелами).*/
 
-fun main () {
-    println("Введите слова через пробел")
+fun main(args: Array<String>) {
     val input = readLine()
-    if (input == "" || input == null) {
-        println("Неверный ввод")
-        return
-    }
-    val mustLongOddWord = input.split(" ").filter { it != "" }.fold("", {acc: String, word: String ->
-        if (word.length % 2 != 0 && word.length > acc.length) word else acc
-    })
-    println(mustLongOddWord[0])
+    var word = ""
+    var resultChar = ' '
+    var len = 0
+    var i = 0
+
+    if (input !== null)
+        for(letter in input){
+            if(letter != ' '){
+                word += letter
+            }
+            if(letter == ' ' || letter == input[input.length - 1]){
+                if(word.length % 2 != 0){
+                    println(i)
+                    if(i == 0) len = word.length
+                    if(len > word.length){
+                        println("len $len")
+                        len = word.length
+                        resultChar = word[0]
+                    }
+                }
+                i++
+                word = ""
+            }
+        }
+
+    println("First letter in the longest word with odd amount of letters is: $resultChar")
 }

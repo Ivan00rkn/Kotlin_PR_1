@@ -9,29 +9,10 @@ fun main () {
         println("Ошибка! Введите числа через пробел")
         return
     }
-    val inputNembers: List<String> = input.split(" ")
-    if (inputNembers.size < 2) {
-        println("Чисел должно быть минимум 2")
-        return
+
+    for (num in input) {
+        
     }
 
-    try {
-        for (num in inputNembers) {
-            if (num.toLong() < 0) {
-                println("Числа должны быть неотрицательными")
-                return
-            }
-        }
-
-        val num1 = inputNembers[0].split("")
-        val num2 = inputNembers[1].split("")
-        val num3 = inputNembers[2].split("")
-
-        val intersectArr = num1.intersect(num2.intersect(num3))
-
-        println(intersectArr.joinToString(" "))
-    } catch (e: NumberFormatException) {
-        println("Ошибка! Введите числа")
-    }
 
 }
