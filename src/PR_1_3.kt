@@ -12,22 +12,21 @@ fun main(args: Array<String>) {
     var i = 0
 
     if (input !== null)
-        for(letter in input){
-            if(letter != ' '){
+        for (letter in input) {
+            if (letter != ' ') {
                 word += letter
             }
-            if(letter == ' ' || letter == input[input.length - 1]){
-                if(word.length % 2 != 0) {
-                    if(i == 0) length = word.length
-                    if(length > word.length){
+            if (letter == ' ' || letter == input[input.length - 1]) {
+                if (word.length % 2 != 0) {
+                    if (length > word.length || length == 0) {
                         length = word.length
                         resultChar = word[0]
                     }
                 }
-                i++
+
                 word = ""
             }
-        } else println("Ошибка ввода!")
+        } else println("Ошибка ввода")
 
     if (resultChar != ' ') println("Результат: $resultChar") else println("Нет ни одного слова с нечётным количеством символов")
 
